@@ -78,8 +78,8 @@ const App = () => {
   return(
     <div>
       <h1>Software anecdotes</h1>
-      <Menu />
       <BrowserRouter>
+        <Menu />
         <Switch>
           <Route path="/create">
             <NewAnecdote addNew={addNew} />
@@ -91,8 +91,8 @@ const App = () => {
             <AnecdoteList anecdotes={anecdotes} />
           </Route>
         </Switch>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </div>
   ) 
 }
