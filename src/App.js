@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import Menu from './components/Menu'
 import Footer from './components/Footer'
 import AnecdoteList from './components/AnecdoteList'
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import NewAnecdote from './components/NewAnecdote'
+import AnecdoteDetail from './components/AnecdoteDetail'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+
 
 
 const About = () => (
@@ -81,6 +83,9 @@ const App = () => {
         <Switch>
           <Route path="/create">
             <NewAnecdote addNew={addNew} />
+          </Route>
+          <Route path="/anecdotes/:id">
+            <AnecdoteDetail anecdotes={anecdotes} />
           </Route>
           <Route path="/"> 
             <AnecdoteList anecdotes={anecdotes} />
