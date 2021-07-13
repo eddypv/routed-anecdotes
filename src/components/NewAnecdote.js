@@ -1,10 +1,10 @@
 import { useState } from "react"
-
+import { useHistory } from 'react-router'
 const NewAnecdote = (props) => {
   const [content, setContent] = useState('')
   const [author, setAuthor] = useState('')
   const [info, setInfo] = useState('')
-
+  const history = useHistory()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -14,6 +14,8 @@ const NewAnecdote = (props) => {
       info,
       votes: 0
     })
+    history.push('/')
+
   }
 
   return (

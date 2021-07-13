@@ -4,7 +4,8 @@ import Footer from './components/Footer'
 import AnecdoteList from './components/AnecdoteList'
 import NewAnecdote from './components/NewAnecdote'
 import AnecdoteDetail from './components/AnecdoteDetail'
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
 
 
 
@@ -21,10 +22,6 @@ const About = () => (
     <p>Software engineering is full of excellent anecdotes, at this app you can find the best and add more.</p>
   </div>
 )
-
-
-
-
 
 const App = () => {
   const [anecdotes, setAnecdotes] = useState([
@@ -45,10 +42,13 @@ const App = () => {
   ])
 
   const [notification, setNotification] = useState('')
-
   const addNew = (anecdote) => {
+    
     anecdote.id = (Math.random() * 10000).toFixed(0)
     setAnecdotes(anecdotes.concat(anecdote))
+    setNotification(`a new anecdote "${anecdote.content}" created!`)
+    
+
   }
 
   const anecdoteById = (id) =>
