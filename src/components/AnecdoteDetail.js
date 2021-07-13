@@ -1,8 +1,8 @@
 import { useParams } from "react-router"
 
-const AnecdoteDetail = ({anecdotes})=>{
+const AnecdoteDetail = ({getAnecdote})=>{
   const anecdoteId = useParams().id
-  const anecdote = anecdotes.find( item => item.id === anecdoteId)
+  const anecdote = getAnecdote(anecdoteId)
   if(anecdote){
     return(
       <div>

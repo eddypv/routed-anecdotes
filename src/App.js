@@ -27,6 +27,7 @@ const App = () => {
 
   const [notification, setNotification] = useState('')
   const addNew = (anecdote) => {
+
     anecdote.id = (Math.random() * 10000).toFixed(0)
     setAnecdotes(anecdotes.concat(anecdote))
     setNotification(`a new anecdote "${anecdote.content}" created!`)    
@@ -56,7 +57,7 @@ const App = () => {
             <NewAnecdote addNew={addNew} />
           </Route>
           <Route path="/anecdotes/:id">
-            <AnecdoteDetail anecdotes={anecdotes} />
+            <AnecdoteDetail getAnecdote={anecdoteById} />
           </Route>
           <Route path="/about">
             <About />
