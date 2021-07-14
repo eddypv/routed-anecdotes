@@ -18,6 +18,11 @@ const NewAnecdote = (props) => {
     history.push('/')
 
   }
+  const handleResetAllFields = (event)=>{
+    content.onReset()
+    author.onReset()
+    info.onReset()
+  }
 
   return (
     <div>
@@ -35,7 +40,8 @@ const NewAnecdote = (props) => {
           url for more info
           <input name='info' value={info.value} onChange={info.onChange} type={info.type} />
         </div>
-        <button>create</button>
+        <button type="submit">create</button>
+        <button type="button" onClick={handleResetAllFields}>reset</button>
       </form>
     </div>
   )
